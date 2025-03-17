@@ -125,30 +125,31 @@ function answerQuestion(answer) {
     const questionData = questions[currentQuestion];
     const answerButtons = answersContainer.querySelectorAll('button');
     
-    
+    // Onemogućavamo dugmadi da se ponovo kliknu
     answerButtons.forEach(button => button.disabled = true);
     
-    
+    // Ako je odgovor tačan, povećavamo broj tačnih odgovora
     if (answer === questionData.correctAnswer) {
         score++;
     }
-    
-   
+
+    // Ovdje dodajemo ispravnu i netačnu klasu na dugmadi
     answerButtons.forEach(button => {
         if (button.textContent === answer && answer === questionData.correctAnswer) {
-            button.classList.add('correct'); 
+            button.classList.add('correct'); // Oznaka za tačan odgovor
         } else if (button.textContent === answer && answer !== questionData.correctAnswer) {
-            button.classList.add('incorrect'); 
+            button.classList.add('incorrect'); // Oznaka za netačan odgovor
         }
         
         if (button.textContent === questionData.correctAnswer) {
-            button.classList.add('correct'); 
+            button.classList.add('correct'); // Oznaka za tačan odgovor na ostatku dugmadi
         }
     });
 
     currentQuestion++;
     setTimeout(() => showNextQuestion(), 1000); 
 }
+
 
 
 function showResults() {
