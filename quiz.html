@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div id="signInForm">
+        <h1>Welcome to Tarik's Quiz!</h1>
+        <label for="playerNameInput">Please enter your name:</label>
+        <input type="text" id="playerNameInput" required>
+        <button type="submit" onclick="startQuiz()">Start!!!</button>
+    </div>
+
+    <div id="categorySelection" style="display:none;">
+        <h2>Select Category</h2>
+        <label><input type="radio" name="category" id="categoryGeography" value="geography"> Geography</label><br>
+        <label><input type="radio" name="category" id="categoryMusic" value="music"> Music</label><br>
+        <label><input type="radio" name="category" id="categoryHistory" value="history"> History</label><br>
+        <label><input type="radio" name="category" id="categoryScience" value="science"> Science</label><br>
+        <button onclick="handleCategorySelection()">Next</button>
+    </div>
+
+    <div id="difficultySelection" style="display:none;">
+        <h2>Select your Difficulty!!!</h2>
+        <label><input type="radio" name="difficulty" value="easy"> Easy</label><br>
+        <label><input type="radio" name="difficulty" value="medium"> Medium</label><br>
+        <label><input type="radio" name="difficulty" value="hard"> Hard</label><br>
+        <button onclick="handleDifficultySelection()">Next</button>
+    </div>
+
+    <div id="quiz-container" style="display:none;">
+        <h2>Question</h2>
+        <p id="questionText"></p>
+        <div id="answers"></div>
+        <div id="timer">Time Remaining: 10</div>
+    </div>
+
+    <div id="results" style="display:none;">
+        <h2>Results</h2>
+        <p id="playerName"></p>
+        <p id="correct"></p>
+        <p id="incorrect"></p>
+        <p id="totalScore"></p>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
